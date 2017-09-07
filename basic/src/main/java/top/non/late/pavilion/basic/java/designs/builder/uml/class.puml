@@ -7,38 +7,41 @@ class Director{
 
 }
 interface Builder{
-    buildOne();
-    buildTwo();
-    buildThree();
-    build();
+    + buildOne();
+    + buildTwo();
+    + buildThree();
+    + build();
 }
 class Product{
-    Object a;
-    Object b;
-    Object c;
+    - Object a;
+    - Object b;
+    - Object c;
 }
 class ConcreteBuilderA{
-    Product product;
-    buildOne();
-    buildTwo();
-    buildThree();
-    build();
+    - Product product;
+    + buildOne();
+    + buildTwo();
+    + buildThree();
+    + build();
 }
 class ConcreteBuilderB{
-    Product product;
-    buildOne();
-    buildTwo();
-    buildThree();
-    build();
+    - Product product;
+    + buildOne();
+    + buildTwo();
+    + buildThree();
+    + build();
 }
 
-Director --|> Builder
-Builder --|> Product
+Director --> Builder
 
-Builder <.. ConcreteBuilderA
-Builder <.. ConcreteBuilderB
+' A know product but product don't know A
+ConcreteBuilderA --> Product
+ConcreteBuilderB --> Product
 
-Builder -left Director
-Builder -right Product
+Builder <|.. ConcreteBuilderA
+Builder <|.. ConcreteBuilderB
+
+'Builder -left Director
+'Builder -right Product
 
 @enduml
