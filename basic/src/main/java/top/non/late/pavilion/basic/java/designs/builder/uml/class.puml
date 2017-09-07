@@ -1,0 +1,44 @@
+@startuml
+
+class Director{
+    - Builder builder;
+    Director(Builder builder);
+    Product build();
+
+}
+interface Builder{
+    buildOne();
+    buildTwo();
+    buildThree();
+    build();
+}
+class Product{
+    Object a;
+    Object b;
+    Object c;
+}
+class ConcreteBuilderA{
+    Product product;
+    buildOne();
+    buildTwo();
+    buildThree();
+    build();
+}
+class ConcreteBuilderB{
+    Product product;
+    buildOne();
+    buildTwo();
+    buildThree();
+    build();
+}
+
+Director --|> Builder
+Builder --|> Product
+
+Builder <.. ConcreteBuilderA
+Builder <.. ConcreteBuilderB
+
+Builder -left Director
+Builder -right Product
+
+@enduml
