@@ -1,31 +1,29 @@
 package top.non.late.pavilion.basic.java.designs.builder.code.simple;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
  * Created by nonlatepavilion on 2017/9/8.
- * Desc:
+ * Desc: 当只有一个concrete builder 时,可以将builder和concrete builder合并。
+ * 该例中，更是将builder置为product的内部类,并且省略director,从而使得代码更加简洁。
  */
 @Data
-@AllArgsConstructor
 public class Book {
     private String author;
     private String bookName;
     private String isbn;
 
-    public static Builder builder() {
-        return new Builder();
+    //private constructor
+    private Book(Builder builder) {
+        this.author = builder.author;
+        this.bookName = builder.bookName;
+        this.isbn = builder.isbn;
     }
 
     public static class Builder {
         private String author;
         private String bookName;
         private String isbn;
-
-        private Builder() {
-
-        }
 
         public Builder author(String author) {
             this.author = author;
@@ -43,7 +41,7 @@ public class Book {
         }
 
         public Book build() {
-            return new Book(author, bookName, isbn);
+            return new Book(this);
         }
 
     }

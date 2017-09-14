@@ -20,7 +20,9 @@ public class Customer {
         director = new BookDirector(argumentBuilder);
         System.out.println(director.build().toString());
 
-        Book book = Book.builder().author("asdf").bookName("book name").isbn("12345678").build();
-        System.out.println(book.toString());
+        Book simpleBook1 = new Book.Builder().author("nonlate1").bookName("茶花").isbn("12345678").build();
+        Book simpleBook2 = new Book.Builder().author("nonlate2").bookName("兰花").isbn("12345666").build();
+        System.out.println(simpleBook1.toString());
+        System.out.println(simpleBook2.toString());
     }
 }
