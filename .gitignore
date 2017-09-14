@@ -26,5 +26,4 @@ hs_err_pid*
 target/
 *iml
 
-ssh-add ~/.ssh/id_rsa $ ssh-add ~/.ssh/github_rsa
 
