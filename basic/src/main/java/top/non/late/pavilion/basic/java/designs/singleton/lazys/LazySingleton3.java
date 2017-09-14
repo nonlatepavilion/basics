@@ -1,7 +1,7 @@
 package top.non.late.pavilion.basic.java.designs.singleton.lazys;
 
 /**
- * Created by yuhp@terminus.io on 2017/9/9.
+ * Created by nonlatepavilion on 2017/9/9.
  * Desc: 懒汉模式 inner class
  *
  * 单例类的实例被包裹在内部类中，因此该单例类加载时并不会完成实例化，直到有线程调用getInstance方法，内部类才会被加载并实例化单例类???
